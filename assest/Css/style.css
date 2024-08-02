@@ -73,3 +73,18 @@ body {
   margin: 0.3em 0;
   width: 55px;
 }
+.panel {
+  position: absolute;
+  top: 0;
+  width: 35%;
+  height: 100%;
+  right: 0;
+  padding: 3em 2em;
+  background: rgba(110, 110, 110, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 1;
+  overflow-y: scroll;
+}
