@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Rubik", Tahoma, Geneva, Verdana, sans-serif;
+  background: #111;
+}
+* {
+  box-sizing: border-box;
+}
+.weather-app {
+  background: url(../Img/bg.jpg);
+  min-height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  position: relative;
+  transition: 500ms;
+  opacity: 1;
+}
