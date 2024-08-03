@@ -8,6 +8,11 @@ body {
 * {
   box-sizing: border-box;
 }
+.brand h2 {
+  margin: 40px;
+  font-weight: lighter;
+}
+
 .weather-app {
   background: url(../Img/bg.jpg);
   min-height: 100vh;
@@ -86,5 +91,70 @@ body {
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   z-index: 1;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
+}
+.search {
+  width: 80%;
+  padding: 20px 10px 5px 0;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  background: none;
+  font-size: 1.3rem;
+  margin-bottom: 1em;
+  color: #ccc;
+}
+.search:focus {
+  outline: none;
+}
+.search::placeholder {
+  color: #ccc;
+}
+.submit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 2.3rem;
+  background-color: rgb(225, 109, 67);
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1.2rem;
+  transition: all 0.4s;
+}
+.submit:hover {
+  background-color: #fff;
+  color: #000;
+}
+.panel ul {
+  padding: 0 0 1em 0;
+  margin: 2em 0;
+  border-bottom: 1px solid #ccc;
+}
+.cities li,
+.details li {
+  list-style: none;
+  padding-bottom: 40px;
+  color: #ccc;
+  transition: all 0.4s;
+  font-size: 1.1rem;
+}
+.city {
+  cursor: pointer;
+}
+.city:hover {
+  color: #fff;
+}
+.details h4 {
+  margin: 2.5em 0;
+  font-size: 1.2rem;
+}
+.details {
+  border-bottom: 1px solid #ccc;
+}
+.details li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.1rem;
 }
