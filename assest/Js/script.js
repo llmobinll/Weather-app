@@ -8,7 +8,8 @@ const temp = document.querySelector(".temp");
 const cloud = document.querySelector(".cloud");
 const humidity = document.querySelector(".humidity");
 const wind = document.querySelector(".wind");
-
+const condition = document.querySelector(".condition");
+const cities = document.querySelectorAll(".city");
 const getWeatherByName = async (city) => {
   const url = `${BASE_URL}/weather?q=${city}&appid=${API_KEY}&units=metric`;
   const response = await fetch(url);
@@ -16,11 +17,30 @@ const getWeatherByName = async (city) => {
   return json;
 };
 
+const displayLocalTime = (latitude, longitude) => {
+  const timestamp = Math.floor(Date.now() / 1000);
+  const url = `${BASE_URL}/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`;
+
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.status === "OK") {
+        const localTime = new Date(
+          (timestamp + data.dstOffset + data.rawOffset) * 1000
+        );
+      }
+    });
+  console.log(localTime);
+};
+
 const renderCurrentWeather = (data) => {
   temp.innerText = Math.round(data.main.temp) + "\u00B0";
   cloud.innerText = data.clouds.all + "%";
   humidity.innerText = data.main.humidity + "%";
   wind.innerText = data.wind.speed + "km/h";
+  condition.innerText = data.weather[0].description;
+  const { lat, lon } = data.coord;
+  displayLocalTime(lat, lon);
   console.log(data);
 };
 
@@ -36,7 +56,13 @@ const searchHandler = async () => {
     cityName.innerText = capitalizedString;
   }
   const currentData = await getWeatherByName(citySearch);
+
   renderCurrentWeather(currentData);
 };
 
 searchButton.addEventListener("click", searchHandler);
+cities.forEach((city) => {
+  city.addEventListener("click", (e) => {
+    searchInput.value = city.innerText;
+  });
+});
